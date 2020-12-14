@@ -6,7 +6,8 @@ const mongoose = require('mongoose');
 const app = express();
 
 //Connect BD
-mongoose.connect('mongodb://localhost/crudbd').then(db => console.log('Db conected')).catch(err => console.log(err));
+const dburl = 'mongodb+srv://CRUD:JNAkGS4x9ZJKPGrU@cluster0.4zkgy.mongodb.net/crudbd?retryWrites=true&w=majority';
+mongoose.connect(dburl, {useCreateIndex:true, useNewUrlParser: true}).then(db => console.log('Db conected')).catch(err => console.log(err));
 
 //import routes
 const indexRoutes = require('./routes/index');
